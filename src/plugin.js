@@ -142,6 +142,20 @@ export default class TableBlock {
   }
 
   /**
+   * Editor.js validation (on save) code for this block
+   * - Skips empty tables
+   *
+   * @param {*} savedData
+   * @returns {boolean}
+   */
+  validate(savedData){
+    if (Array.isArray(savedData.content) && savedData.content.length > 0){
+      return true;
+    }
+    return false;
+  }
+
+  /**
    * Plugin destroyer
    *
    * @returns {void}
